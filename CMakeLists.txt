@@ -11,6 +11,8 @@ find_package(SDL2 REQUIRED)
 include_directories(include)
 
 add_library(OakEngine SHARED src/Engine.cpp
-        src/Math/Vec2.cpp)
+        src/Math/Vec2.cpp
+        src/Physics/Colliders/BaseCollider.cpp
+)
 
 target_link_libraries(OakEngine PRIVATE SDL2::SDL2)
