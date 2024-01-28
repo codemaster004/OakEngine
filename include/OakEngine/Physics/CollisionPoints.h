@@ -8,7 +8,7 @@
 #include "OakEngine/Math/Vec2.h"
 
 
-namespace oak::Collision {
+namespace oak::Collisions {
 	using namespace Math;
 
 	struct CollisionPoints {

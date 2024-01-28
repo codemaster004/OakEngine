@@ -6,13 +6,17 @@
 #define OAKENGINE_PHYSICSSPACE_H
 
 #include "OakEngine/Physics/BaseObject.h"
+#include "OakEngine/Physics/DetectedCollision.h"
 
 #include "DataStructs/Vector.h"
 
 namespace oak::Physics {
+	using Collision = DetectedCollision;
+
 	class PhysicsSpace {
 	private:
 		Vector<Object*> objects;
+		Vector<Collision> collisions;
 	public:
 		void addObject(Object* newObject);
 

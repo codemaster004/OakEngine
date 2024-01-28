@@ -18,7 +18,7 @@ namespace oak {
 		typedef struct Transform Transform;
 	}
 
-	namespace Collision {
+	namespace Collisions {
 		using namespace Math;
 
 

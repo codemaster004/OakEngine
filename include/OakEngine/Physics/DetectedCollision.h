@@ -7,12 +7,12 @@
 
 #include "OakEngine/Math/Vec2.h"
 #include "OakEngine/Physics/CollisionPoints.h"
+#include "OakEngine/Physics/BaseObject.h"
 
-typedef struct Object Object; // todo remove hopefully include full object
 
-
-namespace oak::Collision {
+namespace oak::Collisions {
 	using namespace Math;
+	using namespace Physics;
 
 
 	struct DetectedCollision {
@@ -23,6 +23,11 @@ namespace oak::Collision {
 		Vec2 normal; ///< B - A normalized
 		float depth = 0; ///< Length of B - A
 		bool hasCollision = false; ///< Collision flag
+
+		DetectedCollision() {
+			A = nullptr;
+			B = nullptr;
+		}
 
 		DetectedCollision(Object* objA, Object* objB, Points points) : A(objA), B(objB) {
 			a = points.a;

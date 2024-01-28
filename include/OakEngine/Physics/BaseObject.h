@@ -11,7 +11,7 @@
 
 namespace oak::Physics {
 	using namespace Math;
-	using namespace Collision;
+	using namespace Collisions;
 
 	/// Describes an object location
 	struct Transform {
