@@ -13,6 +13,7 @@
 #define N_COLLIDERS 2
 
 using namespace oak::Collision;
+using namespace oak::Physics;
 
 using CollisionTestFunc = Points (*)(Collider*, Transform*, Collider*, Transform*);
 
