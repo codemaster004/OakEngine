@@ -6,8 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
-# Include directories
+find_package(SDL2 REQUIRED)
+
 include_directories(include)
 
-add_library(OakEngine SHARED src/Engine.cpp
-        include/OakEngine/Engine.h)
+add_library(OakEngine SHARED src/Engine.cpp)
+
+target_link_libraries(OakEngine PRIVATE SDL2::SDL2)
