@@ -12,10 +12,8 @@
 
 
 namespace oak {
-	using namespace oak;
-
 	namespace Physics {
-		typedef struct Transform Transform;
+		struct Transform;
 	}
 
 	namespace Collisions {

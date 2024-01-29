@@ -1,13 +1,14 @@
 /**
  * @file BaseCollider.cpp
  * @brief [Description of file]
- * 
+ *
  * @author Filip Dabkowski
  * @date 28/01/2024
  */
 #include "OakEngine/Physics/Colliders/BaseCollider.h"
+#include "OakEngine/Physics/BaseObject.h"
 
-#include <algorithm>
+#include "OakEngine/Physics/CollisionTests.h"
 
 
 #define N_COLLIDERS 2
@@ -21,7 +22,7 @@ using CollisionTestFunc = Points (*)(Collider*, Transform*, Collider*, Transform
 struct CollisionTests {
 	CollisionTestFunc functions[N_COLLIDERS][N_COLLIDERS] = {
 		{nullptr, nullptr},
-		{nullptr, nullptr},
+		{nullptr, testCircleCircle},
 	};
 };
 
@@ -32,7 +33,7 @@ Points BaseCollider::detectCollision(Collider* a, Transform* aTrans,
 
 	bool swap = b->getType() > a->getType();
 	if (swap) {
-		std::swap(a, b);
+//		std::swap(a, b);
 	}
 
 	Points result = tests.functions[a->getType()][b->getType()](a, aTrans, b, bTrans);
