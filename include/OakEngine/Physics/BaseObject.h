@@ -7,17 +7,12 @@
 
 #include "OakEngine/Math/Vec2.h"
 #include "OakEngine/Physics/Colliders/BaseCollider.h"
+#include "OakEngine/Common/Components/Transform.h"
 
 
 namespace oak::Physics {
 	using namespace Math;
 	using namespace Collisions;
-
-	/// Describes an object location
-	struct Transform {
-		Vec2 position;
-		Vec2 scale;
-	};
 
 	/// Base Game Object
 	struct BaseObject {

@@ -5,7 +5,7 @@
 #ifndef OAKENGINE_TEMPLATES_H
 #define OAKENGINE_TEMPLATES_H
 
-namespace oak::Common {
+namespace oak {
 	template<typename T>
 	void swap(T& a, T& b) {
 		T temp = a;

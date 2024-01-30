@@ -9,9 +9,8 @@
 
 
 namespace oak::Collisions {
-	using namespace oak::Physics;
 
-	class CircleCollider : public BaseCollider {
+	struct CircleCollider : public BaseCollider {
 	private:
 		float radius;
 

@@ -8,33 +8,36 @@
 #include "OakEngine/Physics/PhysicsSpace.h"
 
 
-using namespace oak::Physics;
+namespace oak {
+	using namespace Physics;
 
 
-void PhysicsSpace::addObject(Object* newObject) {
-	if (newObject == nullptr)
-		return;
+	void PhysicsSpace::addObject(Object* newObject) {
+		if (newObject == nullptr)
+			return;
 
-	objects.pushBack(newObject);
-}
-
-void PhysicsSpace::spaceStep() {
-	for (Object* object: objects) {
-		object->velocity += object->force;
-		object->transform->position += object->velocity;
+		objects.pushBack(newObject);
 	}
-}
 
-void PhysicsSpace::handleCollisions() {
-	for (Object* objA: objects) {
-		for (Object* objB: objects) {
-			if (objA == objB)
-				break; // Break for considering only uniq pairs
-
-			Points points = Collider::detectCollision(objA->collider, objA->transform, objB->collider, objB->transform);
-			collisions.emplaceBack(objA, objB, points); // Create Collision object
+	void PhysicsSpace::spaceStep() {
+		for (Object* object: objects) {
+			object->velocity += object->force;
+			object->transform->position += object->velocity;
 		}
 	}
 
-	collisions.clear();
+	void PhysicsSpace::handleCollisions() {
+		for (Object* objA: objects) {
+			for (Object* objB: objects) {
+				if (objA == objB)
+					break; // Break for considering only uniq pairs
+
+				Points points = Collider::detectCollision(objA->collider, objA->transform, objB->collider,
+														  objB->transform);
+				collisions.emplaceBack(objA, objB, points); // Create Collision object
+			}
+		}
+
+		collisions.clear();
+	}
 }

@@ -6,37 +6,37 @@
  * @date 29/01/2024
  */
 #include "OakEngine/Physics/Colliders/CircleCollider.h"
-#include "OakEngine/Physics/BaseObject.h"
 
 
-using namespace oak::Collisions;
+namespace oak {
+	using namespace Collisions;
 
-
-void CircleCollider::drawCollider(Transform* transform) {
-	Vec2 worldPos = origin + transform->position;
+	void CircleCollider::drawCollider(Transform* transform) {
+		Vec2 worldPos = origin + transform->position;
 //		ColliderDrawing::drawCircle(oak::Engine::renderer, {(int) worldPos.x, (int) worldPos.y, radius});
-}
+	}
 
 
-Vec2 CircleCollider::getFurthestPoint(Vec2 axis) {
-	return this->origin + axis * radius;
-}
+	Vec2 CircleCollider::getFurthestPoint(Vec2 axis) {
+		return this->origin + axis * radius;
+	}
 
 
-Vec2 CircleCollider::getCentroid() {
-	return origin;
-}
+	Vec2 CircleCollider::getCentroid() {
+		return origin;
+	}
 
 
-Range2 CircleCollider::getRange() {
-	return Range2{};
-}
+	Range2 CircleCollider::getRange() {
+		return Range2{};
+	}
 
 
-Range CircleCollider::getRangeX() {
-	return Range{origin.x - radius, origin.x + radius};
-}
+	Range CircleCollider::getRangeX() {
+		return Range{origin.x - radius, origin.x + radius};
+	}
 
-Range CircleCollider::getRangeY() {
-	return Range{origin.y - radius, origin.y + radius};
+	Range CircleCollider::getRangeY() {
+		return Range{origin.y - radius, origin.y + radius};
+	}
 }

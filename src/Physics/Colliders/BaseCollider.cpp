@@ -6,7 +6,7 @@
  * @date 28/01/2024
  */
 #include "OakEngine/Physics/Colliders/BaseCollider.h"
-#include "OakEngine/Physics/BaseObject.h"
+#include "OakEngine/Common/Components/Transform.h"
 
 #include "OakEngine/Physics/CollisionTests.h"
 
@@ -15,42 +15,43 @@
 
 #define N_COLLIDERS 2
 
-using namespace oak::Collisions;
-using namespace oak::Physics;
+namespace oak {
+	using namespace Collisions;
 
-using CollisionTestFunc = Points (*)(Collider*, Transform*, Collider*, Transform*);
+	using CollisionTestFunc = Points (*)(Collider*, Transform*, Collider*, Transform*);
 
 
-struct CollisionTests {
-	CollisionTestFunc functions[N_COLLIDERS][N_COLLIDERS] = {
-		{nullptr, nullptr},
-		{nullptr, testCircleCircle},
+	struct CollisionTests {
+		CollisionTestFunc functions[N_COLLIDERS][N_COLLIDERS] = {
+			{nullptr, nullptr},
+			{nullptr, testCircleCircle},
+		};
 	};
-};
 
 
-Points BaseCollider::detectCollision(Collider* a, Transform* aTrans,
-									 Collider* b, Transform* bTrans) {
-	static const CollisionTests tests{};
+	Points BaseCollider::detectCollision(Collider* a, Transform* aTrans,
+										 Collider* b, Transform* bTrans) {
+		static const CollisionTests tests{};
 
-	bool swap = b->getType() > a->getType();
-	if (swap) {
-		Common::swap(a, b);
+		bool swap = b->getType() > a->getType();
+		if (swap) {
+			oak::swap(a, b);
+		}
+
+		Points result = tests.functions[a->getType()][b->getType()](a, aTrans, b, bTrans);
+
+		if (swap) {
+			result.normal *= -1;
+		}
+
+		return result;
 	}
 
-	Points result = tests.functions[a->getType()][b->getType()](a, aTrans, b, bTrans);
-
-	if (swap) {
-		result.normal *= -1;
+	void Collider::setOrigin(float newX, float newY) {
+		origin = {newX, newY};
 	}
 
-	return result;
-}
-
-void Collider::setOrigin(float newX, float newY) {
-	origin = {newX, newY};
-}
-
-Vec2& Collider::getOrigin() {
-	return origin;
+	Vec2& Collider::getOrigin() {
+		return origin;
+	}
 }

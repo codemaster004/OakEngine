@@ -27,6 +27,7 @@ add_library(OakEngine SHARED src/Engine.cpp
         src/Physics/Colliders/BaseCollider.cpp
         src/Physics/Colliders/CircleCollider.cpp
         src/Physics/PhysicsSpace.cpp
+        src/Physics/CollisionTests.cpp
 )
 
 target_link_libraries(OakEngine PRIVATE DataStructs SDL2)

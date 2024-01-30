@@ -7,12 +7,10 @@
 
 #include "OakEngine/Physics/BaseObject.h"
 
-namespace oak::Collisions {
-	using namespace Physics;
 
-	Points testCircleCircle(Collider*, Transform*, Collider*, Transform*) {
-		return {};
-	}
+namespace oak::Collisions {
+
+	Points testCircleCircle(Collider*, Transform*, Collider*, Transform*);
 
 //	Points testCircleCircle(BaseCollider* a, Physics::Transform* aTrans,
 //							BaseCollider* b, Physics::Transform* bTrans);
@@ -20,5 +18,6 @@ namespace oak::Collisions {
 //	CollisionPoints testCircleLine(Collider* circle, Transform* cTrans,
 //								   Collider* line, Transform* lTrans);
 }
+
 
 #endif //OAKENGINE_COLLISIONTESTS_H
