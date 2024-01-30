@@ -20,6 +20,13 @@ namespace oak::Physics {
 		objects.pushBack(newObject);
 	}
 
+	void PhysicsSpace::addSolver(Collisions::Solver* newSolver) {
+		if (newSolver == nullptr)
+			return;
+
+		solvers.pushBack(newSolver);
+	}
+
 	void PhysicsSpace::spaceStep() {
 		for (BaseObject* object: objects) {
 			object->velocity += object->force;
@@ -37,6 +44,10 @@ namespace oak::Physics {
 														  objB->collider, objB->transform);
 				collisions.emplaceBack(objA, objB, points); // Create Collision object
 			}
+		}
+
+		for (Collisions::Solver* solver : solvers) {
+			solver->solve(collisions);
 		}
 
 		collisions.clear();
