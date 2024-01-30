@@ -10,6 +10,8 @@
 
 #include "OakEngine/Physics/CollisionTests.h"
 
+#include "OakEngine/Common/Templates.h"
+
 
 #define N_COLLIDERS 2
 
@@ -33,7 +35,7 @@ Points BaseCollider::detectCollision(Collider* a, Transform* aTrans,
 
 	bool swap = b->getType() > a->getType();
 	if (swap) {
-//		std::swap(a, b);
+		Common::swap(a, b);
 	}
 
 	Points result = tests.functions[a->getType()][b->getType()](a, aTrans, b, bTrans);
