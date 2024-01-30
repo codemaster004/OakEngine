@@ -7,6 +7,9 @@
 
 // Designed only for use of client applications
 
+// ENTRY POINT
+#include "OakEngine/EntryPoint.h"
+
 // Main Engine Class
 #include "OakEngine/Engine.h"
 
