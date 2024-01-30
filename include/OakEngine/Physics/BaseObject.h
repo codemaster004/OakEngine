@@ -20,6 +20,14 @@ namespace oak::Physics {
 		Vec2 velocity{};
 		Vec2 force{};
 		float mass = 0;
+
+		BaseObject() {
+			transform = new Transform;
+		}
+
+		BaseObject(float x, float y) {
+			transform = new Transform{x, y, 1, 1};
+		}
 	};
 
 }
