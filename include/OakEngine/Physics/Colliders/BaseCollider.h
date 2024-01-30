@@ -75,6 +75,10 @@ namespace oak::Collisions {
 			Circle,
 		};
 
+		BaseCollider() = default;
+
+		virtual ~BaseCollider() = default;
+
 		/* General Draw Functions */
 
 		virtual void drawCollider(Transform* transform) = 0;

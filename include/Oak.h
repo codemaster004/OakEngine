@@ -21,7 +21,7 @@
 #include "OakEngine/Common/Components/Transform.h"
 
 // PHYSICS
-#include "OakEngine/Physics/BaseObject.h"
+#include "OakEngine/Physics/CollisionObject.h"
 #include "OakEngine/Physics/CollisionPoints.h"
 #include "OakEngine/Physics/CollisionTests.h"
 #include "OakEngine/Physics/DetectedCollision.h"

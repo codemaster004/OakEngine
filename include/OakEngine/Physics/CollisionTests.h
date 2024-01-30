@@ -5,7 +5,7 @@
 #ifndef OAKENGINE_COLLISIONTESTS_H
 #define OAKENGINE_COLLISIONTESTS_H
 
-#include "OakEngine/Physics/BaseObject.h"
+#include "OakEngine/Physics/CollisionObject.h"
 
 
 namespace oak::Collisions {

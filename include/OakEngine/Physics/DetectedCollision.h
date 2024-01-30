@@ -7,14 +7,14 @@
 
 #include "OakEngine/Math/Vec2.h"
 #include "OakEngine/Physics/CollisionPoints.h"
-#include "OakEngine/Physics/BaseObject.h"
+#include "OakEngine/Physics/CollisionObject.h"
 
 
 namespace oak::Collisions {
 
 	struct DetectedCollision {
-		Physics::BaseObject* A; ///< Object A taking part in the collision.
-		Physics::BaseObject* B; ///< Object B taking part in the collision.
+		Physics::CollisionObject* A; ///< Object A taking part in the collision.
+		Physics::CollisionObject* B; ///< Object B taking part in the collision.
 		Vec2 a, b; ///< Points of collision
 
 		Vec2 normal; ///< B - A normalized
@@ -26,7 +26,7 @@ namespace oak::Collisions {
 			B = nullptr;
 		}
 
-		DetectedCollision(Physics::BaseObject* objA, Physics::BaseObject* objB, CollisionPoints points)
+		DetectedCollision(Physics::CollisionObject* objA, Physics::CollisionObject* objB, CollisionPoints points)
 			: A(objA), B(objB) {
 			a = points.a;
 			b = points.b;
