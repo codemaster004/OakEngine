@@ -5,6 +5,7 @@
  * @author Filip Dabkowski
  * @date 28/01/2024
  */
+#include "OakEngine/Logs/Logs.h"
 #include "OakEngine/Physics/PhysicsSpace.h"
 
 
@@ -14,15 +15,23 @@ namespace oak::Physics {
 	using Collider = Collisions::BaseCollider;
 
 	void PhysicsSpace::addObject(BaseObject* newObject) {
-		if (newObject == nullptr)
+		if (newObject == nullptr) {
+			OAK_LOG_WARN("PhysicsSpace an attempt to add Non Existing Object");
 			return;
+		}
+
+		if (newObject->collider == nullptr) {
+			OAK_LOG_WARN("PhysicsSpace an attempt to add Non Collectable Object");
+		}
 
 		objects.pushBack(newObject);
 	}
 
 	void PhysicsSpace::addSolver(Collisions::Solver* newSolver) {
-		if (newSolver == nullptr)
+		if (newSolver == nullptr) {
+			OAK_LOG_WARN("PhysicsSpace an attempt to add Non Existing Solver");
 			return;
+		}
 
 		solvers.pushBack(newSolver);
 	}
@@ -46,7 +55,7 @@ namespace oak::Physics {
 			}
 		}
 
-		for (Collisions::Solver* solver : solvers) {
+		for (Collisions::Solver* solver: solvers) {
 			solver->solve(collisions);
 		}
 
