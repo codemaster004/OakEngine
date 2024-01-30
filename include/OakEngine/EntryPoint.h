@@ -6,13 +6,18 @@
 #define OAKENGINE_ENTRYPOINT_H
 
 #include "OakEngine/Engine.h"
+#include "OakEngine/Logs/Logs.h"
 
 namespace oak {
 	extern Engine* createApplication();
 }
 
 int main(int argc, char** argv) {
+	oak::Logs().init();
+
 	auto app = oak::createApplication();
+
+	LOG_INFO("HELLo there");
 
 	app->run();
 

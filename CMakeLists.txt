@@ -19,6 +19,9 @@ link_directories(${LIB_SDL2_PATH}/build)
 include_directories(${LIB_DS_PATH}/include)
 link_directories(${LIB_DS_PATH}/lib)
 
+# 3-party libraries
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include)
+
 # My includes
 include_directories(include)
 
@@ -30,6 +33,7 @@ add_library(OakEngine SHARED include/Oak.h
         src/Physics/PhysicsSpace.cpp
         src/Physics/CollisionTests.cpp
         src/Physics/Solvers/PositionSolver.cpp
+        src/Logs/Logs.cpp
 )
 
 target_link_libraries(OakEngine PRIVATE DataStructs SDL2)
