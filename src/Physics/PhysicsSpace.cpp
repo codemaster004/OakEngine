@@ -13,7 +13,7 @@ namespace oak::Physics {
 	using Points = Collisions::CollisionPoints;
 	using Collider = Collisions::BaseCollider;
 
-	void PhysicsSpace::addObject(Object* newObject) {
+	void PhysicsSpace::addObject(BaseObject* newObject) {
 		if (newObject == nullptr)
 			return;
 
@@ -21,15 +21,15 @@ namespace oak::Physics {
 	}
 
 	void PhysicsSpace::spaceStep() {
-		for (Object* object: objects) {
+		for (BaseObject* object: objects) {
 			object->velocity += object->force;
 			object->transform->position += object->velocity;
 		}
 	}
 
 	void PhysicsSpace::handleCollisions() {
-		for (Object* objA: objects) {
-			for (Object* objB: objects) {
+		for (BaseObject* objA: objects) {
+			for (BaseObject* objB: objects) {
 				if (objA == objB)
 					break; // Break for considering only uniq pairs
 

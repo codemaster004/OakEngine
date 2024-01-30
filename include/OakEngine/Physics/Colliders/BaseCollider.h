@@ -81,8 +81,7 @@ namespace oak::Collisions {
 
 		/* General Collide Check */
 
-		static Points detectCollision(BaseCollider* a, Transform* aTrans,
-									  BaseCollider* b, Transform* bTrans);
+		static CollisionPoints detectCollision(BaseCollider* a, Transform* aTrans, BaseCollider* b, Transform* bTrans);
 
 		virtual Vec2 getFurthestPoint(Vec2 axis) = 0;
 

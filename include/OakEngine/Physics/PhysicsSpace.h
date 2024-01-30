@@ -15,10 +15,10 @@ namespace oak::Physics {
 
 	class PhysicsSpace {
 	private:
-		Vector<Object*> objects;
+		Vector<BaseObject*> objects;
 		Vector<Collision> collisions;
 	public:
-		void addObject(Object* newObject);
+		void addObject(BaseObject* newObject);
 
 		void spaceStep();
 

@@ -22,8 +22,6 @@ namespace oak::Physics {
 		float mass = 0;
 	};
 
-	using Object = BaseObject;
-
 }
 
 #endif //OAKENGINE_BASEOBJECT_H

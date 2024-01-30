@@ -13,7 +13,7 @@
 
 namespace oak::Collisions {
 
-	Points testCircleCircle(BaseCollider* a, Transform* aTrans, BaseCollider* b, Transform* bTrans) {
+	CollisionPoints testCircleCircle(BaseCollider* a, Transform* aTrans, BaseCollider* b, Transform* bTrans) {
 		assert(a->getType() == BaseCollider::Circle && b->getType() == BaseCollider::Circle);
 
 		auto circleA = dynamic_cast<CircleCollider*>(a);

@@ -28,8 +28,6 @@ namespace oak::Collisions {
 			}
 		}
 	};
-
-	using Points = CollisionPoints;
 }
 
 #endif //OAKENGINE_COLLISIONPOINTS_H

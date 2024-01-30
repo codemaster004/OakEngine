@@ -15,8 +15,9 @@
 
 #define N_COLLIDERS 2
 
-namespace oak {
-	using namespace Collisions;
+namespace oak::Collisions {
+
+	using Points = CollisionPoints;
 
 	using CollisionTestFunc = Points (*)(BaseCollider*, Transform*, BaseCollider*, Transform*);
 
