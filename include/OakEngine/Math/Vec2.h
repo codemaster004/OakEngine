@@ -8,7 +8,7 @@
 #include "cstddef"
 
 
-namespace oak::Math {
+namespace oak {
 
 	/**
 	 * @struct Vec2

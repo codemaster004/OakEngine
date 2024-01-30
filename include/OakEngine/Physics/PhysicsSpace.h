@@ -11,7 +11,7 @@
 #include "DataStructs/Vector.h"
 
 namespace oak::Physics {
-	using Collision = DetectedCollision;
+	using Collision = Collisions::DetectedCollision;
 
 	class PhysicsSpace {
 	private:

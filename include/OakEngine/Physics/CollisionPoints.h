@@ -9,8 +9,6 @@
 
 
 namespace oak::Collisions {
-	using namespace Math;
-
 	struct CollisionPoints {
 		Vec2 a; ///< Furthest point of A into B
 		Vec2 b; ///< Furthest point of A into B

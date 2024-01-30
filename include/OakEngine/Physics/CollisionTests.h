@@ -10,7 +10,7 @@
 
 namespace oak::Collisions {
 
-	Points testCircleCircle(Collider*, Transform*, Collider*, Transform*);
+	Points testCircleCircle(BaseCollider*, Transform*, BaseCollider*, Transform*);
 
 //	Points testCircleCircle(BaseCollider* a, Physics::Transform* aTrans,
 //							BaseCollider* b, Physics::Transform* bTrans);

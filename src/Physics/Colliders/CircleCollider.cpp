@@ -8,8 +8,7 @@
 #include "OakEngine/Physics/Colliders/CircleCollider.h"
 
 
-namespace oak {
-	using namespace Collisions;
+namespace oak::Collisions {
 
 	void CircleCollider::drawCollider(Transform* transform) {
 		Vec2 worldPos = origin + transform->position;

@@ -13,8 +13,6 @@
 
 
 namespace oak::Collisions {
-	using namespace Math;
-
 
 	/// A structure to represent a range of projection in a 1D plane.
 	/// It consists of two floats representing the minimum and maximum values of a projection range.
@@ -109,9 +107,6 @@ namespace oak::Collisions {
 	protected:
 		Vec2 origin{};
 	};
-
-
-	using Collider = BaseCollider;
 }
 
 

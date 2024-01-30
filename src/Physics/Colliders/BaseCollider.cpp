@@ -18,7 +18,7 @@
 namespace oak {
 	using namespace Collisions;
 
-	using CollisionTestFunc = Points (*)(Collider*, Transform*, Collider*, Transform*);
+	using CollisionTestFunc = Points (*)(BaseCollider*, Transform*, BaseCollider*, Transform*);
 
 
 	struct CollisionTests {
@@ -29,8 +29,8 @@ namespace oak {
 	};
 
 
-	Points BaseCollider::detectCollision(Collider* a, Transform* aTrans,
-										 Collider* b, Transform* bTrans) {
+	Points BaseCollider::detectCollision(BaseCollider* a, Transform* aTrans,
+										 BaseCollider* b, Transform* bTrans) {
 		static const CollisionTests tests{};
 
 		bool swap = b->getType() > a->getType();
@@ -47,11 +47,11 @@ namespace oak {
 		return result;
 	}
 
-	void Collider::setOrigin(float newX, float newY) {
+	void BaseCollider::setOrigin(float newX, float newY) {
 		origin = {newX, newY};
 	}
 
-	Vec2& Collider::getOrigin() {
+	Vec2& BaseCollider::getOrigin() {
 		return origin;
 	}
 }

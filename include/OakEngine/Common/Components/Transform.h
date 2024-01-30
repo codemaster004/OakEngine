@@ -12,8 +12,8 @@ namespace oak {
 
 	/// Describes an object location
 	struct Transform {
-		Math::Vec2 position;
-		Math::Vec2 scale;
+		Vec2 position;
+		Vec2 scale;
 	};
 }
 

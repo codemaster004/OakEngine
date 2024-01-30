@@ -11,11 +11,10 @@
 #include <cassert>
 
 
-namespace oak {
-	using namespace Collisions;
+namespace oak::Collisions {
 
-	Points Collisions::testCircleCircle(Collider* a, Transform* aTrans, Collider* b, Transform* bTrans) {
-		assert(a->getType() == Collider::Circle && b->getType() == Collider::Circle);
+	Points testCircleCircle(BaseCollider* a, Transform* aTrans, BaseCollider* b, Transform* bTrans) {
+		assert(a->getType() == BaseCollider::Circle && b->getType() == BaseCollider::Circle);
 
 		auto circleA = dynamic_cast<CircleCollider*>(a);
 		auto circleB = dynamic_cast<CircleCollider*>(b);

@@ -8,9 +8,10 @@
 #include "OakEngine/Physics/PhysicsSpace.h"
 
 
-namespace oak {
-	using namespace Physics;
+namespace oak::Physics {
 
+	using Points = Collisions::CollisionPoints;
+	using Collider = Collisions::BaseCollider;
 
 	void PhysicsSpace::addObject(Object* newObject) {
 		if (newObject == nullptr)
@@ -32,8 +33,8 @@ namespace oak {
 				if (objA == objB)
 					break; // Break for considering only uniq pairs
 
-				Points points = Collider::detectCollision(objA->collider, objA->transform, objB->collider,
-														  objB->transform);
+				Points points = Collider::detectCollision(objA->collider, objA->transform,
+														  objB->collider, objB->transform);
 				collisions.emplaceBack(objA, objB, points); // Create Collision object
 			}
 		}

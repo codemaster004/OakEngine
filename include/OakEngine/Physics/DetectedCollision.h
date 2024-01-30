@@ -11,13 +11,10 @@
 
 
 namespace oak::Collisions {
-	using namespace Math;
-	using namespace Physics;
-
 
 	struct DetectedCollision {
-		Object* A; ///< Object A taking part in the collision.
-		Object* B; ///< Object B taking part in the collision.
+		Physics::Object* A; ///< Object A taking part in the collision.
+		Physics::Object* B; ///< Object B taking part in the collision.
 		Vec2 a, b; ///< Points of collision
 
 		Vec2 normal; ///< B - A normalized
@@ -29,7 +26,7 @@ namespace oak::Collisions {
 			B = nullptr;
 		}
 
-		DetectedCollision(Object* objA, Object* objB, Points points) : A(objA), B(objB) {
+		DetectedCollision(Physics::Object* objA, Physics::Object* objB, Points points) : A(objA), B(objB) {
 			a = points.a;
 			b = points.b;
 			normal = points.normal;

@@ -11,13 +11,11 @@
 
 
 namespace oak::Physics {
-	using namespace Math;
-	using namespace Collisions;
 
 	/// Base Game Object
 	struct BaseObject {
-		Transform* transform;
-		Collider* collider;
+		Transform* transform = nullptr;
+		Collisions::BaseCollider* collider = nullptr;
 
 		Vec2 velocity{};
 		Vec2 force{};
