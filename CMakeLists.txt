@@ -22,7 +22,8 @@ link_directories(${LIB_DS_PATH}/lib)
 # My includes
 include_directories(include)
 
-add_library(OakEngine SHARED src/Engine.cpp
+add_library(OakEngine SHARED include/Oak.h
+        src/Engine.cpp
         src/Math/Vec2.cpp
         src/Physics/Colliders/BaseCollider.cpp
         src/Physics/Colliders/CircleCollider.cpp
