@@ -7,14 +7,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Cmake standard library outpud folder
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
-
+# Library paths
 set(LIB_DS_PATH /Users/filip/Developer/Cpp/DataStructs)
+set(LIB_SDL2_PATH /Users/filip/Developer/Cpp/SDL)
 
-find_package(SDL2 REQUIRED)
+# My SDL build
+include_directories(${LIB_SDL2_PATH}/include)
+link_directories(${LIB_SDL2_PATH}/build)
 
 # Data Structures Library
-include_directories(../DataStructs/include)
-link_directories(../DataStructs/lib)
+include_directories(${LIB_DS_PATH}/include)
+link_directories(${LIB_DS_PATH}/lib)
 
 # My includes
 include_directories(include)
@@ -26,4 +29,4 @@ add_library(OakEngine SHARED src/Engine.cpp
         src/Physics/PhysicsSpace.cpp
 )
 
-target_link_libraries(OakEngine PRIVATE DataStructs SDL2::SDL2)
+target_link_libraries(OakEngine PRIVATE DataStructs SDL2)

@@ -7,6 +7,7 @@
 
 #include "SDL.h"
 
+
 namespace oak {
 	class Engine {
 	protected:
