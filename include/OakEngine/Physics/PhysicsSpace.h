@@ -7,7 +7,7 @@
 
 #include "DataStructs/Vector.h"
 
-#include "OakEngine/Physics/CollisionObject.h"
+#include "OakEngine/Physics/PhysicsObject.h"
 #include "OakEngine/Physics/DetectedCollision.h"
 #include "OakEngine/Physics/Solvers/Solver.h"
 
@@ -17,19 +17,17 @@ namespace oak::Physics {
 
 	class PhysicsSpace {
 	private:
-		Vector<CollisionObject*> objects;
+		Vector<PhysicsObject*> objects;
 		Vector<Collision> collisions;
 
 		Vector<Collisions::Solver*> solvers;
 
 	public:
-		void addObject(CollisionObject* newObject);
+		void addObject(PhysicsObject* newObject);
 		// todo: remove object
 
 		void addSolver(Collisions::Solver* newSolver);
 		// todo: remove solver
-
-		void spaceStep();
 
 		void handleCollisions();
 	};

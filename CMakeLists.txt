@@ -34,7 +34,8 @@ add_library(OakEngine SHARED include/Oak.h
         src/Physics/CollisionTests.cpp
         src/Physics/Solvers/PositionSolver.cpp
         src/Logs/Logs.cpp
-        src/Physics/CollisionObject.cpp
+        src/Physics/PhysicsObject.cpp
+        src/Physics/Dynamic/DynamicObject.cpp
 )
 
 target_link_libraries(OakEngine PRIVATE DataStructs SDL2)

@@ -17,8 +17,8 @@ namespace oak::Collisions {
 			Vec2 mTranslateVec = collision.normal * collision.depth;
 			mTranslateVec /= 1;
 
-			collision.A->transform->position -= mTranslateVec;
-			collision.B->transform->position += mTranslateVec;
+			collision.A->transform()->position -= mTranslateVec;
+			collision.B->transform()->position += mTranslateVec;
 		}
 	}
 }

@@ -14,7 +14,7 @@ namespace oak::Physics {
 	using Points = Collisions::CollisionPoints;
 	using Collider = Collisions::BaseCollider;
 
-	void PhysicsSpace::addObject(CollisionObject* newObject) {
+	void PhysicsSpace::addObject(PhysicsObject* newObject) {
 		if (newObject == nullptr) {
 			OAK_LOG_WARN("PhysicsSpace an attempt to add Non Existing Object");
 			return;
@@ -32,25 +32,17 @@ namespace oak::Physics {
 		solvers.pushBack(newSolver);
 	}
 
-	void PhysicsSpace::spaceStep() {
-		for (CollisionObject* object: objects) {
-
-			object->velocity += object->force;
-			object->transform->position += object->velocity;
-		}
-	}
-
 	void PhysicsSpace::handleCollisions() {
-		for (CollisionObject* objA: objects) {
-			for (CollisionObject* objB: objects) {
+		for (PhysicsObject* objA: objects) {
+			for (PhysicsObject* objB: objects) {
 				if (objA == objB)
 					break; // Break for considering only uniq pairs
 
-				if (objA->collider == nullptr || objB->collider == nullptr)
+				if (objA->collider() == nullptr || objB->collider() == nullptr)
 					continue; // make sure both have colliders
 
-				Points points = Collider::detectCollision(objA->collider, objA->transform,
-														  objB->collider, objB->transform);
+				Points points = Collider::detectCollision(objA->collider(), objA->transform(),
+														  objB->collider(), objB->transform());
 				collisions.emplaceBack(objA, objB, points); // Create Collision object
 			}
 		}
