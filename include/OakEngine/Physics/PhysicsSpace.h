@@ -16,7 +16,7 @@ namespace oak::Physics {
 	using Collision = Collisions::DetectedCollision;
 
 	class PhysicsSpace {
-	private:
+	protected:
 		Vector<PhysicsObject*> objects;
 		Vector<Collision> collisions;
 

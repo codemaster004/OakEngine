@@ -27,6 +27,10 @@
 #include "OakEngine/Physics/DetectedCollision.h"
 #include "OakEngine/Physics/PhysicsSpace.h"
 
+// Physics/Dynamic
+#include "OakEngine/Physics/Dynamic/DynamicObject.h"
+#include "OakEngine/Physics/Dynamic/DynamicSpace.h"
+
 // Physics/Colliders
 #include "OakEngine/Physics/Colliders/BaseCollider.h"
 #include "OakEngine/Physics/Colliders/CircleCollider.h"

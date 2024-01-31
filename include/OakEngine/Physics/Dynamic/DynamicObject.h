@@ -14,9 +14,10 @@ namespace oak::Physics {
 	protected:
 		Vec2 t_force; ///< Physical Force or Acceleration vector
 		Vec2 t_velocity; ///< Physical Speed vector
+		float t_gravity; ///< Gravity value to be applied
 
 		float t_mass; ///< Mass or Weights of the object
-		bool t_applyGravity; ///< Flag to determine whether to apply gravity
+		bool t_processGravity; ///< Flag to determine whether to apply gravity
 
 		float t_friction; ///< Friction coefficient applied when moving.
 		float t_elasticity; ///< How elastic (bouncy) object is
@@ -28,9 +29,10 @@ namespace oak::Physics {
 
 			t_force = {};
 			t_velocity = {};
+			t_gravity = 0;
 
 			t_mass = 1;
-			t_applyGravity = false;
+			t_processGravity = false;
 
 			t_friction = 0;
 			t_elasticity = 0;
@@ -42,13 +44,18 @@ namespace oak::Physics {
 
 			t_force = {};
 			t_velocity = {};
+			t_gravity = 0;
 
 			t_mass = 1;
-			t_applyGravity = false;
+			t_processGravity = false;
 
 			t_friction = 0;
 			t_elasticity = 0;
 		}
+
+		void applyGravity();
+
+		void moveObject();
 
 		/* Getters & Setters for protected values */
 
@@ -62,10 +69,20 @@ namespace oak::Physics {
 		[[nodiscard]]
 		Vec2 force() const;
 
+		void setGravity(float g);
+
+		[[nodiscard]]
+		float gravity() const;
+
 		void setMass(float m);
 
 		[[nodiscard]]
 		float mass() const;
+
+		void setProcessGravity(bool v);
+
+		[[nodiscard]]
+		bool processGravity() const;
 	};
 }
 #endif //OAKENGINE_DYNAMICOBJECT_H
