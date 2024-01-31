@@ -74,9 +74,14 @@ namespace oak::Physics {
 	/// Game movable game object
 	struct DynamicObject : public CollisionObject {
 	protected:
-		Vec2 velocity{};
-		Vec2 force{};
-		float mass = 0;
+		Vec2 _force;
+		Vec2 _velocity;
+
+		float _mass;
+		bool _applyGravity;
+
+		float _friction;
+		float _elasticity;
 
 	public:
 		DynamicObject(float x, float y) {

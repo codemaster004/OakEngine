@@ -63,26 +63,26 @@ namespace oak::Physics {
 	/* Dynamic Object */
 
 	void DynamicObject::setVelocity(const Vec2& vel) {
-		velocity = vel;
+		_velocity = vel;
 	}
 
 	Vec2 DynamicObject::getVelocity() const {
-		return velocity;
+		return _velocity;
 	}
 
 	void DynamicObject::setForce(const Vec2& f) {
-		force = f;
+		_force = f;
 	}
 
 	Vec2 DynamicObject::getForce() const {
-		return force;
+		return _force;
 	}
 
 	void DynamicObject::setMass(float m) {
-		mass = m;
+		_mass = m;
 	}
 
 	float DynamicObject::getMass() const {
-		return mass;
+		return _mass;
 	}
 }
