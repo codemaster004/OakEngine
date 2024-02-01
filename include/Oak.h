@@ -26,6 +26,7 @@
 // Events
 #include "OakEngine/Events/Event.h"
 #include "OakEngine/Events/KeyboardEvents.h"
+#include "OakEngine/Events/AppEvents.h"
 
 // PHYSICS
 #include "OakEngine/Physics/PhysicsObject.h"
