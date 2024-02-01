@@ -10,6 +10,9 @@
 // ENTRY POINT
 #include "OakEngine/EntryPoint.h"
 
+// Core
+#include "OakEngine/Core.h"
+
 // Main Engine Class
 #include "OakEngine/Engine.h"
 
@@ -19,6 +22,10 @@
 // Common
 #include "OakEngine/Common/Templates.h"
 #include "OakEngine/Common/Components/Transform.h"
+
+// Events
+#include "OakEngine/Events/Event.h"
+#include "OakEngine/Events/KeyboardEvents.h"
 
 // PHYSICS
 #include "OakEngine/Physics/PhysicsObject.h"
