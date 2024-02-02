@@ -37,6 +37,7 @@ add_library(OakEngine SHARED include/Oak.h
         src/Physics/PhysicsObject.cpp
         src/Physics/Dynamic/DynamicObject.cpp
         src/Physics/Dynamic/DynamicSpace.cpp
+        src/Window/MacWindow.cpp
 )
 
 target_link_libraries(OakEngine PRIVATE DataStructs SDL2)
