@@ -5,15 +5,42 @@
 #ifndef OAKENGINE_ENGINE_H
 #define OAKENGINE_ENGINE_H
 
+#include "OakEngine/Window/Window.h"
+
 #include "SDL.h"
 
 
 namespace oak {
 	class Engine {
+	public:
+		/* Public Fields */
+
+//		static SDL_Renderer* renderer; ///< Main renderer for showing on screen.
+
+//		static float delta;
+
+
+		/* Constructors & Destructors */
+
+		Engine() {
+			WindowProps props(640, 480);
+			t_window = Window::createWindow(props);
+		};
+
+		~Engine() {
+			clean();
+		}
+
+		/* Public Methods */
+
+		virtual void run();
+
 	protected:
 		/* Private Fields */
 
-		SDL_Window* window = nullptr; ///< Application window for showing content
+		Window* t_window;
+
+//		SDL_Window* window = nullptr; ///< Application window for showing content
 		SDL_Event event{}; ///< Event that occurred by pressing or lifting some key
 
 		bool isRunning = true; ///< For main game loop.
@@ -66,52 +93,6 @@ namespace oak {
 	* This function destroys the SDL window and renderer, and quits the SDL library.
 	*/
 		void clean();
-
-	public:
-		/* Public Fields */
-
-		static SDL_Renderer* renderer; ///< Main renderer for showing on screen.
-
-		static float delta;
-
-
-		/* Constructors & Destructors */
-
-		Engine() {
-			initialize("Powered by Oak", 640, 480);
-		};
-
-
-		Engine(int width, int height) {
-			initialize("Powered by Oak", width, height);
-		}
-
-
-		Engine(const char* title, int width, int height) {
-			initialize(title, width, height);
-		}
-
-
-		~Engine() {
-			clean();
-		}
-
-		/* Public Methods */
-
-		/**
-	 * @brief Initializes the Game object.
-	 *
-	 * This method initializes the SDL library, creates a window and a renderer, and sets the initial render draw color.
-	 *
-	 * @param title The title of the window.
-	 * @param width The width of the window.
-	 * @param height The height of the window.
-	 * @return True if the initialization is successful, otherwise false.
-	 */
-		bool initialize(const char* title, int width, int height);
-
-		virtual void run();
-
 	};
 }
 #endif //OAKENGINE_ENGINE_H

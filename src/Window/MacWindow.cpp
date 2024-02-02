@@ -19,6 +19,7 @@ namespace oak {
 	MacWindow::~MacWindow() {
 		SDL_DestroyWindow(t_window);
 		SDL_DestroyRenderer(t_renderer);
+		SDL_Quit();
 	}
 
 	void MacWindow::init(const WindowProps& props) {

@@ -11,6 +11,11 @@ namespace oak {
 	struct WindowProps {
 		int width, height;
 		const char* title;
+
+		explicit WindowProps(int width=640, int height=480, const char* title="Powered by Oak")
+		: width(width), height(height), title(title) {
+
+		}
 	};
 
 	using EventFunction = void (*)(Event&);
@@ -29,7 +34,7 @@ namespace oak {
 		static Window* createWindow(const WindowProps& props);
 
 	protected:
-		WindowProps t_props{};
+		WindowProps t_props;
 
 		EventFunction t_eventCallback = nullptr;
 	};
